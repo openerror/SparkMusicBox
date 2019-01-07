@@ -3,7 +3,7 @@
 
 A study on 1) how to prevent user loss ('churning'); 2) suggest the most relevant content.
 
-Powered by **[implicit](https://github.com/benfred/implicit)**, **[scikit-learn](http://scikit-learn.org/)** and **PySpark**. Distributed computing courtesy of Google Cloud Platform. Data originates
+Powered by **[implicit](https://github.com/benfred/implicit)**, **[scikit-learn](http://scikit-learn.org/)** and **[PySpark](https://spark.apache.org/docs/2.4.0/api/python/)**. Distributed computing courtesy of Google Cloud Platform. Data originates
 from a leading music streaming platform in China, and was obtained through the [BitTiger Data Science Bootcamp](https://www.bittiger.io/). The project was coded and executed on a 2015 Macbook Pro running macOS 10.13 (High Sierra) + Python 3.7.2.
 
 ### Overview of Data Set
@@ -16,11 +16,11 @@ from a leading music streaming platform in China, and was obtained through the [
 1. Treated churn prediction as a binary classification problem; cross-validated **logistic regression**,
 **random forest** and/or **gradient boosting** models. 0.90 >= AUC >= 0.86 achieved on test data.
 
-2. Built a recommendation system for implicit ratings based on matrix factorization.
+2. Built a recommendation system for implicit ratings based on **ALS matrix factorization**.
 Cross-validated the factorization model locally; AUC ~0.8 achieved on test data.
 Then, implemented scripts for running the same model on Google Cloud.
 
-Please see below for details on project methodology and the purpose of each file. 
+Please see below for details on project methodology and the purpose of each file. File numbering indicates the order in which each file should be executed.
 
 ## 1) Data Preprocessing
 See Jupyter notebooks starting with letter A under directory `src`.
