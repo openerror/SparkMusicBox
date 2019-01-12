@@ -12,16 +12,13 @@ from a leading music streaming platform in China, and was obtained through the [
 - For each play event: whether it is paid for, and its duration in seconds
 - Limited song metadata available: track name, artist, song length
 
-Since the data does not contain explicit ratings by users on songs, user preferences
-must be `inferred `from past behavior and summarized as a quantified *implicit* rating.
-When building a recommendation system on implicit ratings, we should not estimate the ratings
-themselves; rather we should use them as *confidence values* for predicting whether there would be
-activity by a user on a given song. (**Hence we are optimizing AUC
-instead of RMSE.**) Imagine the scenario where users played a long sound track to its end:
-most of them probably loved it ... or they simply fell asleep.
+Since the data does not contain explicit ratings by users on songs, user preferences must be *inferred* from past behavior and summarized as a quantitative *implicit* rating. The main difference between implicit and
+explicit ratings is that implicit ones serve better as *confidence values* for predicting whether there will be further activity, rather than indicators of actual preference. Imagine the scenario where users looped a long music track many times:
+they *most likely* loved it and would listen to it *again* (hence producing activity) ... Or they simply fell asleep despite not especially
+liking the track.
 
-The recommendation [algorithm](https://ieeexplore.ieee.org/document/4781121) and libraries
-used in this project are based on the above considerations for implicit ratings.
+The paper ["Collaborative Filtering for Implicit Feedback Datasets"](https://ieeexplore.ieee.org/document/4781121) discusses
+the above considerations in detail, and the algorithm it proposes is utilized in this project through [implicit](https://github.com/benfred/implicit) and [PySpark](https://spark.apache.org/docs/2.4.0/ml-collaborative-filtering.html).
 
 ### Summary of Results:
 1. Treated churn prediction as a binary classification problem; cross-validated **logistic regression**,
