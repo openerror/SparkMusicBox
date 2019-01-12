@@ -25,7 +25,11 @@ used in this project are based on the above considerations for implicit ratings.
 
 ### Summary of Results:
 1. Treated churn prediction as a binary classification problem; cross-validated **logistic regression**,
-**random forest** and/or **gradient boosting** models. 0.90 >= AUC >= 0.86 achieved on test data.
+**random forest** and/or **gradient boosting** models. Considering how user activity has dropped
+precipitously throughout the 6 weeks (see graphs near top of [notebook B1](https://github.com/openerror/SparkMusicBox/blob/master/src/B1_feature_label_generation_with_spark.ipynb)), retaining users is a matter of
+survival for this music streaming site. Fortunately, all three models achieved a **[90% recall
+](https://en.wikipedia.org/wiki/Precision_and_recall#Recall)** on test data, which means they
+can identify the vast majority of churning users. Then, promotions and discounts can be directed to where they are needed.
 
 2. Built a recommendation system for implicit ratings based on **ALS matrix factorization**.
 Cross-validated the factorization model locally; AUC ~0.8 achieved on test data.
